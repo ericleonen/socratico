@@ -8,8 +8,8 @@ export default function App() {
 
   return (
     <div className="flex h-screen w-screen">
-      <div className="flex flex-col w-[75%] overflow-y-scroll">
-        <Header />
+      <div className="flex flex-col w-[75%]">
+        <Header characterCount={text.length}/>
         <TextSection {...{text, setText}} />
       </div>
       <QuestionsSection />

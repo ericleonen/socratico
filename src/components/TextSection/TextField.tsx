@@ -1,4 +1,4 @@
-import { onChangeText, useAutoSizeTextArea } from "@/utils/textUtils";
+import { onChangeText, useAutoSizeTextArea } from "@/utils/input";
 import { useRef } from "react"
 
 type TextFieldProps = {
@@ -16,7 +16,7 @@ export default function TextField({ text, setText }: TextFieldProps) {
             onChange={onChangeText(setText)}
             ref={textAreaRef}
             placeholder="Paste text here"
-            className="w-full resize-none bg-transparent focus:outline-none py-3"
+            className="w-full resize-none bg-transparent focus:outline-none pt-3 pb-6"
         />
     )
 }
