@@ -51,7 +51,7 @@ export default function QuestionsSection({ text }: QuestionSectionType) {
 
     return (
         <div className="flex flex-col h-full flex-grow bg-amber-200">
-            <div className="flex justify-center py-3 bg-amber-300 relative">
+            <div className="flex justify-center py-3 bg-amber-300 relative shadow-md z-10">
                 <h2 className="text-xl">Questions</h2>
                 <CopyQuestionsButton 
                     onClick={copyToClipboard}
