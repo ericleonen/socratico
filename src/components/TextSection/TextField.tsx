@@ -1,4 +1,4 @@
-import { onChangeText, useAutoSizeTextArea } from "@/utils/input";
+import { onChangeValue, useAutoSizeTextArea } from "@/utils/input";
 import { useRef } from "react"
 
 type TextFieldProps = {
@@ -13,7 +13,7 @@ export default function TextField({ text, setText }: TextFieldProps) {
     return (
         <textarea
             value={text}
-            onChange={onChangeText(setText)}
+            onChange={onChangeValue(setText)}
             ref={textAreaRef}
             placeholder="Paste text here"
             className="w-full resize-none bg-transparent focus:outline-none pt-3 pb-6"

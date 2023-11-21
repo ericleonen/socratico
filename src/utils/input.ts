@@ -11,13 +11,17 @@ export function useAutoSizeTextArea(textAreaRef: HTMLTextAreaElement | null, val
     }, [textAreaRef, value]);
 }
 
-export function onChangeText(setText: (text: string) => void) {
+export function onChangeValue(setValue: (value: any) => void, parseAsInt: boolean = false) {
     return (event: ChangeEvent) => {
         if (
             event.target instanceof HTMLTextAreaElement || 
             event.target instanceof HTMLInputElement
         ) {
-            setText(event.target.value)
+            if (parseAsInt) {
+                setValue(parseInt(event.target.value))
+            } else {
+                setValue(event.target.value)
+            }
         }
     };
 }

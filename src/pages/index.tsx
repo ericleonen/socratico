@@ -9,10 +9,10 @@ export default function App() {
   return (
     <div className="flex h-screen w-screen">
       <div className="flex flex-col w-[75%]">
-        <Header characterCount={text.length}/>
+        <Header characterCount={text.length} />
         <TextSection {...{text, setText}} />
       </div>
-      <QuestionsSection />
+      <QuestionsSection text={text} />
     </div>
   );
 }

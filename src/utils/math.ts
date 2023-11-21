@@ -5,3 +5,13 @@ export function roundInK(n: number) {
         return Math.round(n / 1000) + "K";
     }
 }
+
+export function parseIntMin(str: string, min: number) {
+    const num = parseInt(str);
+
+    if (isNaN(num) || num < min) {
+        return min;
+    } else {
+        return num;
+    }
+}
