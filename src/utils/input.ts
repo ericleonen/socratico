@@ -5,10 +5,19 @@ export function useAutoSizeTextArea(textAreaRef: HTMLTextAreaElement | null, val
         if (textAreaRef) {
             textAreaRef.style.height = "0px";
             textAreaRef.style.height = `${textAreaRef.scrollHeight}px`;
-
-            console.log(textAreaRef.style.height);
         }
     }, [textAreaRef, value]);
+}
+
+export function useAutoSizeNumberInput(numberInputRef: HTMLInputElement | null, value: number, buffer: number = 20) {
+    useEffect(() => {
+        if (numberInputRef) {
+            numberInputRef.style.width = "0px";
+            numberInputRef.style.width = `${numberInputRef.scrollWidth + buffer}px`;
+
+            console.log(numberInputRef.style.width);
+        }
+    }, [numberInputRef, value]);
 }
 
 export function onChangeValue(setValue: (value: any) => void, parseAsInt: boolean = false) {
