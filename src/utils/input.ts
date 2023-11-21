@@ -20,6 +20,20 @@ export function useAutoSizeNumberInput(numberInputRef: HTMLInputElement | null, 
     }, [numberInputRef, value]);
 }
 
+export function setAnswerByIndex(
+    setAnswers: (_: (prevAnswers: string[]) => string[]) => void, 
+    index: number
+) {
+    return (answer: string) => {
+        setAnswers((prevAnswers: string[]) => {
+            const newAnswers = [...prevAnswers];
+            newAnswers[index] = answer;
+
+            return newAnswers;
+        })
+    };
+}
+
 export function onChangeValue(setValue: (value: any) => void, parseAsInt: boolean = false) {
     return (event: ChangeEvent) => {
         if (
