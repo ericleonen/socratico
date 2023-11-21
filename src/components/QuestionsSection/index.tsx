@@ -22,7 +22,7 @@ export default function QuestionsSection({ text }: QuestionSectionType) {
         } catch (err) {
             console.log(`Failed to copy: ${err}`);
         }
-    }
+    };
 
     return (
         <div className="flex flex-col h-full flex-grow bg-amber-200">
