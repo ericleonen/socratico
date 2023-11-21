@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import GenerateQuestionsButton from "./GenerateQuestionsButton";
 import QuestionsCountField from "./QuestionsCountField";
 import Questions from "./Questions";
@@ -11,8 +11,12 @@ type QuestionSectionType = {
 
 export default function QuestionsSection({ text }: QuestionSectionType) {
     const [numQuestions, setNumQuestions] = useState<number>(5);
-    const [questions, setQuestions] = useState<string[]>(["test question 1", "test question2"]);
-    const [answers, setAnswers] = useState<string[]>(["answer 1", "answer 2"]);
+    const [questions, setQuestions] = useState<string[]>([]);
+    const [answers, setAnswers] = useState<string[]>([]);
+
+    useEffect(() => {
+        setAnswers(questions.map(() => ""));
+    }, [questions, setAnswers]);
 
     const copyToClipboard = async () => {
         try {
@@ -33,7 +37,7 @@ export default function QuestionsSection({ text }: QuestionSectionType) {
                     disabled={questions.length === 0}
                 />
             </div>
-            <div className="flex flex-grow flex-col py-3 px-6">
+            <div className="flex flex-grow flex-col py-3 px-6 overflow-y-scroll">
                 {
                     !questions.length ? (<>
                         <QuestionsCountField {...{numQuestions, setNumQuestions}} />
