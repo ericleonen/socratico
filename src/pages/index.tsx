@@ -5,7 +5,7 @@ import TextSection from "@/components/TextSection";
 export default function App() {
   return (
     <div className="flex h-screen w-screen">
-      <div className="flex flex-col">
+      <div className="flex flex-col w-[75%]">
         <Header />
         <TextSection />
       </div>
