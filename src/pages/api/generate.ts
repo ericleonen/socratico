@@ -10,6 +10,8 @@ export default function handler(
   res: NextApiResponse<QuestionsData>
 ) {
   if (req.method === "POST") {
+    const { text } = req.body;
+    
     const questions = ["1", "2"];
     res.status(200).json({ questions });
   } else {

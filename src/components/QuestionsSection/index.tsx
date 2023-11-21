@@ -4,6 +4,7 @@ import QuestionsCountField from "./QuestionsCountField";
 import Questions from "./Questions";
 import CopyQuestionsButton from "./CopyQuestionsButton";
 import { formatQuestions } from "@/utils/format";
+import { stringify } from "querystring";
 
 type QuestionSectionType = {
     text: string
@@ -28,6 +29,26 @@ export default function QuestionsSection({ text }: QuestionSectionType) {
         }
     };
 
+    const generateQuestions = async () => {
+        try {
+            const res = await fetch(
+                "/api/generate",
+                {
+                    method: "POST",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ text })
+                }
+            );
+            const data = await res.json()
+            setQuestions(data.questions);
+        } catch (err) {
+            console.log(`Request failed - ${err}`)
+        }
+    }
+
     return (
         <div className="flex flex-col h-full flex-grow bg-amber-200">
             <div className="flex justify-center py-3 bg-amber-300 relative">
@@ -41,7 +62,7 @@ export default function QuestionsSection({ text }: QuestionSectionType) {
                 {
                     !questions.length ? (<>
                         <QuestionsCountField {...{numQuestions, setNumQuestions}} />
-                        <GenerateQuestionsButton />
+                        <GenerateQuestionsButton onClick={generateQuestions} />
                     </>) : (
                         <Questions 
                             questions={questions}
