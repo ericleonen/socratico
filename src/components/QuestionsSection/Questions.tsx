@@ -9,7 +9,7 @@ type QuestionsType = {
 
 export default function Questions({ questions, answers, setAnswers }: QuestionsType) {
     return (
-        <div className="mt-20">{
+        <div className="mt-6 w-full px-6">{
             questions.map((question: string, index: number) => (
                 <Question
                     key={`question_${index}`}
