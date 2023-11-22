@@ -9,7 +9,7 @@ type QuestionsType = {
 
 export default function Questions({ questions, answers, setAnswers }: QuestionsType) {
     return (
-        <>{
+        <div className="mt-20">{
             questions.map((question: string, index: number) => (
                 <Question
                     key={`question_${index}`}
@@ -18,6 +18,6 @@ export default function Questions({ questions, answers, setAnswers }: QuestionsT
                     setAnswer={setAnswerByIndex(setAnswers, index)}
                 />
             ))
-        }</>
+        }</div>
     )
 }

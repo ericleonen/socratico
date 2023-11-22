@@ -7,8 +7,8 @@ type HeaderProps = {
 
 export default function Header({ characterCount }: HeaderProps) {
     return (
-        <div className="flex px-6 py-3 w-full items-center relative z-10">
-            <h1 className="text-xl font-bold">Socratico</h1>
+        <div className="flex py-3 px-6 w-[75%] z-10 fixed bg-[whitesmoke] opacity-95">
+            <h1 className="text-xl font-bold font-serif">Socratico</h1>
             <span className="ml-2">by ericleonen</span>
             <CharacterCount value={characterCount} />
             <HelpButton />

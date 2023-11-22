@@ -49,14 +49,14 @@ export default function QuestionsSection({ text }: QuestionSectionType) {
 
     return (
         <div className="flex flex-col h-full w-1/4 overflow-hidden z-30 shadow-md shadow-black bg-black/95">
-            <div className="flex justify-center py-3 relative z-10">
+            <div className="flex justify-center py-3 fixed z-40 w-[25%] bg-black/90 opacity-95">
                 <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-tr from-cyan-500 to-indigo-500">Questions</h2>
                 <CopyQuestionsButton 
                     onClick={copyToClipboard}
                     disabled={questions.length === 0}
                 />
             </div>
-            <div className="flex h-full flex-col py-6 px-6 overflow-y-scroll">
+            <div className="flex h-full flex-col px-6 overflow-y-scroll">
                 {
                     !questions.length ? (
                         <div className="flex flex-col justify-center h-full w-full">

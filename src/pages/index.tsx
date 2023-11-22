@@ -8,11 +8,9 @@ export default function App() {
 
   return (
     <div className="flex h-screen w-screen">
-      <div className="flex flex-col flex-grow">
+      <div className="flex flex-col h-full flex-grow overflow-y-scroll items-center relative">
         <Header characterCount={text.length} />
-        <div className="flex flex-col items-center flex-grow overflow-y-scroll w-full">
-          <TextSection {...{text, setText}} />
-        </div>
+        <TextSection {...{text, setText}} />
       </div>
       <QuestionsSection text={text} />
     </div>
