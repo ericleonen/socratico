@@ -19,7 +19,7 @@ export default function Question({ question, answer, setAnswer }: QuestionProps)
                 value={answer}
                 onChange={onChangeValue(setAnswer)}
                 placeholder="Your answer"
-                className="focus:outline-none w-full resize-none bg-gray-200/10 text-gray-200 py-2 px-3 rounded-sm mt-2"
+                className="focus:outline-none w-full resize-none placeholder-gray-200/30 bg-gray-200/10 text-gray-200/90 py-2 px-3 rounded-sm mt-2"
             />
         </div>
     );

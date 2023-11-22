@@ -7,7 +7,7 @@ type TextSectionProps = {
 
 export default function TextSection({ text, setText }: TextSectionProps) {
     return (
-        <div className="mt-6 flex w-[720px] px-20 h-min flex-grow bg-gray-50 border-[2px] shadow-sm">
+        <div className="mt-6 flex w-[720px] px-20 h-min flex-grow bg-gray-50 border-[2px] border-gray-300 shadow-sm">
             <TextField {...{text, setText}} />
         </div>
     );

@@ -15,8 +15,8 @@ export default function TextField({ text, setText }: TextFieldProps) {
             value={text}
             onChange={onChangeValue(setText)}
             ref={textAreaRef}
-            placeholder="Paste text here"
-            className="w-full resize-none bg-transparent focus:outline-none pt-16 pb-10"
+            placeholder="Paste some interesting text here and generate questions over on the right."
+            className="w-full resize-none bg-transparent focus:outline-none pt-16 pb-10 text-black/80"
         />
     )
 }

@@ -3,6 +3,7 @@ import GenerateQuestionsButton from "./GenerateQuestionsButton";
 import Questions from "./Questions";
 import { generateQuestions } from "@/utils/questions";
 import QuestionsHeader from "./QuestionsHeader";
+import GenerateQuestionsPrompt from "./GenerateQuestionsPrompt";
 
 type QuestionSectionType = {
     text: string
@@ -22,13 +23,10 @@ export default function QuestionsSection({ text }: QuestionSectionType) {
             <QuestionsHeader {...{questions, answers}} />
             {
                 !questions.length ? (
-                    <div className="flex flex-col justify-center h-full w-full">
-                        <GenerateQuestionsButton 
-                            onClick={generateQuestions(text, setQuestions)}
-                            disabled={text.length === 0} 
-                        />
-                        <p className="text-gray-200/50 text-center mt-3">You don't have any questions yet. Let's generate some with AI!</p>
-                    </div>
+                    <GenerateQuestionsPrompt 
+                        disabled={text.length === 0}
+                        generateQuestions={generateQuestions(text, setQuestions)}
+                    />
                 ) : (
                     <Questions 
                         questions={questions}

@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: whitesmoke;
+* {
+  font-family: "Inter", sans-serif;
 }
 
 @layer components {
