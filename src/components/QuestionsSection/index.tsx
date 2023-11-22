@@ -50,7 +50,7 @@ export default function QuestionsSection({ text }: QuestionSectionType) {
     return (
         <div className="flex flex-col h-full w-1/4 overflow-hidden z-30 shadow-md shadow-black bg-black/95">
             <div className="flex justify-center py-3 fixed z-40 w-[25%] bg-black/90 opacity-95">
-                <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-tr from-cyan-500 to-indigo-500">Questions</h2>
+                <h2 className="text-xl font-bold text-ai-theme">Questions</h2>
                 <CopyQuestionsButton 
                     onClick={copyToClipboard}
                     disabled={questions.length === 0}

@@ -5,3 +5,13 @@
 body {
   background-color: whitesmoke;
 }
+
+@layer components {
+  .text-ai-theme {
+    @apply text-transparent bg-clip-text bg-gradient-to-tr from-cyan-500 to-indigo-500;
+  }
+
+  .bg-ai-theme {
+    @apply bg-gradient-to-tr from-cyan-500 to-indigo-500;
+  }
+}

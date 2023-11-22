@@ -13,7 +13,7 @@ export default function Question({ question, answer, setAnswer }: QuestionProps)
 
     return (
         <div className="w-full mb-4">
-            <p className="font-medium text-transparent bg-clip-text bg-gradient-to-tr from-cyan-500 to-indigo-500">{question}</p>
+            <p className="font-medium text-ai-theme">{question}</p>
             <textarea 
                 ref={textAreaRef}
                 value={answer}
