@@ -12,7 +12,28 @@ export default function handler(
   if (req.method === "POST") {
     const { text } = req.body;
     
-    const questions = ["1", "2"];
+    const questions = [
+      "This is a sample question.",
+      "This is, get this, yet another surprising sample question. Can you answer it?",
+      "Here's a question in a different format.",
+      "Oh my gosh! Yet another question appears.",
+      "This is a sample question.",
+      "This is, get this, yet another surprising sample question. Can you answer it?",
+      "Here's a question in a different format.",
+      "Oh my gosh! Yet another question appears.",
+      "This is a sample question.",
+      "This is, get this, yet another surprising sample question. Can you answer it?",
+      "Here's a question in a different format.",
+      "Oh my gosh! Yet another question appears.",
+      "This is a sample question.",
+      "This is, get this, yet another surprising sample question. Can you answer it?",
+      "Here's a question in a different format.",
+      "Oh my gosh! Yet another question appears.",
+      "This is a sample question.",
+      "This is, get this, yet another surprising sample question. Can you answer it?",
+      "Here's a question in a different format.",
+      "Oh my gosh! Yet another question appears."
+    ];
     res.status(200).json({ questions });
   } else {
     res.status(404).json({

@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import GenerateQuestionsButton from "./GenerateQuestionsButton";
-import QuestionsCountField from "./QuestionsCountField";
 import Questions from "./Questions";
 import CopyQuestionsButton from "./CopyQuestionsButton";
 import { formatQuestions } from "@/utils/format";
-import { stringify } from "querystring";
 
 type QuestionSectionType = {
     text: string
@@ -50,20 +48,25 @@ export default function QuestionsSection({ text }: QuestionSectionType) {
     }
 
     return (
-        <div className="flex flex-col h-full flex-grow bg-amber-200">
-            <div className="flex justify-center py-3 bg-amber-300 relative shadow-md z-10">
-                <h2 className="text-xl">Questions</h2>
+        <div className="flex flex-col h-full w-1/4 overflow-hidden z-30 shadow-md shadow-black bg-black/95">
+            <div className="flex justify-center py-3 relative z-10">
+                <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-tr from-cyan-500 to-indigo-500">Questions</h2>
                 <CopyQuestionsButton 
                     onClick={copyToClipboard}
                     disabled={questions.length === 0}
                 />
             </div>
-            <div className="flex flex-grow flex-col py-3 px-6 overflow-y-scroll">
+            <div className="flex h-full flex-col py-6 px-6 overflow-y-scroll">
                 {
-                    !questions.length ? (<>
-                        <QuestionsCountField {...{numQuestions, setNumQuestions}} />
-                        <GenerateQuestionsButton onClick={generateQuestions} />
-                    </>) : (
+                    !questions.length ? (
+                        <div className="flex flex-col justify-center h-full w-full">
+                            <GenerateQuestionsButton 
+                                onClick={generateQuestions}
+                                disabled={text.length === 0} 
+                            />
+                            <p className="text-gray-200/50 text-center mt-3">You don't have any questions yet. Let's generate some with AI!</p>
+                        </div>
+                    ) : (
                         <Questions 
                             questions={questions}
                             answers={answers}

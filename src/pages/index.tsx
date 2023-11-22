@@ -8,7 +8,7 @@ export default function App() {
 
   return (
     <div className="flex h-screen w-screen">
-      <div className="flex flex-col w-[75%]">
+      <div className="flex flex-col flex-grow">
         <Header characterCount={text.length} />
         <div className="flex flex-col items-center flex-grow overflow-y-scroll w-full">
           <TextSection {...{text, setText}} />
