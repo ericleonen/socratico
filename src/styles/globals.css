@@ -19,3 +19,11 @@
     @apply bg-gradient-to-tr from-cyan-500/40 to-indigo-500/40 backdrop-blur-sm;
   }
 }
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}

@@ -10,6 +10,7 @@ export default function App() {
 
   const [payModalOpen, setPayModalOpen] = useState<boolean>(false);
   const [helpModalOpen, setHelpModalOpen] = useState<boolean>(false);
+  const [numQuestions, setNumQuestions] = useState<number>(5);
 
   return (
     <ModalContext.Provider value={{ setPayModalOpen, setHelpModalOpen }}>
@@ -20,7 +21,12 @@ export default function App() {
           </div>
           <QuestionsSection text={text} />
         </div>
-        { payModalOpen && <PayModal /> }
+        { 
+          payModalOpen && 
+          <PayModal 
+            {...{numQuestions, setNumQuestions}} 
+          /> 
+        }
     </ModalContext.Provider>
   );
 }

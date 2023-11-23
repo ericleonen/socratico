@@ -9,11 +9,11 @@ export function useAutoSizeTextArea(textAreaRef: HTMLTextAreaElement | null, val
     }, [textAreaRef, value]);
 }
 
-export function useAutoSizeNumberInput(numberInputRef: HTMLInputElement | null, value: number, buffer: number = 20) {
+export function useAutoSizeNumberInput(numberInputRef: HTMLInputElement | null, value: number) {
     useEffect(() => {
         if (numberInputRef) {
             numberInputRef.style.width = "0px";
-            numberInputRef.style.width = `${numberInputRef.scrollWidth + buffer}px`;
+            numberInputRef.style.width = `${numberInputRef.scrollWidth}px`;
 
             console.log(numberInputRef.style.width);
         }
@@ -40,10 +40,12 @@ export function onChangeValue(setValue: (value: any) => void, parseAsInt: boolea
             event.target instanceof HTMLTextAreaElement || 
             event.target instanceof HTMLInputElement
         ) {
+            const val = event.target.value;
+
             if (parseAsInt) {
-                setValue(parseInt(event.target.value))
+                setValue(parseInt(val));
             } else {
-                setValue(event.target.value)
+                setValue(val)
             }
         }
     };

@@ -11,9 +11,9 @@ type ModalBaseProps = {
 export default function ModalBase({ title, close, children }: ModalBaseProps) {
     return (
         <Shadow close={close} >
-            <div className="bg-gray-200 rounded-md w-min min-w-[40rem] shadow-md overflow-hidden pb-6 flex flex-col">
+            <div className="bg-gray-200 rounded-md w-min min-w-[40rem] shadow-md overflow-hidden flex flex-col absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-50">
                 <ModalHeader {...{title, close}} />
-                <div className="flex grow w-full p-6">
+                <div className="flex grow w-full py-6">
                     {children}
                 </div>
             </div>

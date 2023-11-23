@@ -7,7 +7,7 @@ type ModalHeaderProps = {
 
 export default function ModalHeader({ title, close }: ModalHeaderProps) {
     return (
-        <div className="flex py-3 justify-center bg-black/90 relative">
+        <div className="flex py-3 justify-center bg-black/90 relative shadow-sm">
             <h3 className="font-medium text-gray-200/90">{title}</h3>
             <button 
                 onClick={close}
