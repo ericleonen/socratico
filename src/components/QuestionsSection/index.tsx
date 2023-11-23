@@ -15,7 +15,7 @@ export default function QuestionsSection({ text }: QuestionSectionType) {
     const [answers, setAnswers] = useState<string[]>([]);
 
     useEffect(() => {
-        setAnswers(questions.map(() => ""));
+        setAnswers(questions?.map(() => ""));
     }, [questions, setAnswers]);
 
     return (

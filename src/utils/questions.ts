@@ -22,3 +22,16 @@ export function generateQuestions (
         }
     }
 }
+
+const loadingMessages = [
+    "Thinking deep thoughts",
+    "Contemplating concepts",
+    "Querying inquiries",
+    "Pondering possibilities",
+    "Debating doubts"
+]
+
+export function generateLoadingMessage() {
+    const r = Math.floor(Math.random() * loadingMessages.length);
+    return loadingMessages[r];
+}

@@ -34,7 +34,10 @@ export default function handler(
       "Here's a question in a different format.",
       "Oh my gosh! Yet another question appears."
     ];
-    res.status(200).json({ questions });
+
+    setTimeout(() => {
+      res.status(200).json({ questions });
+    }, 2000);
   } else {
     res.status(404).json({
       questions: [],
