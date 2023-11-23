@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import HelpModal from "@/components/HelpModal";
 import { ModalContext } from "@/components/Modals/ModalContext";
 import PayModal from "@/components/PayModal";
 import QuestionsSection from "@/components/QuestionsSection";
@@ -27,6 +28,7 @@ export default function App() {
             {...{text, numQuestions, setNumQuestions}} 
           /> 
         }
+        { helpModalOpen && <HelpModal /> }
     </ModalContext.Provider>
   );
 }
