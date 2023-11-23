@@ -14,4 +14,8 @@
   .bg-ai-theme {
     @apply bg-gradient-to-tr from-cyan-500 to-indigo-500;
   }
+
+  .bg-ai-theme-translucent {
+    @apply bg-gradient-to-tr from-cyan-500/40 to-indigo-500/40 backdrop-blur-sm;
+  }
 }

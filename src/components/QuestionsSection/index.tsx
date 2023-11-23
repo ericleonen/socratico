@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import GenerateQuestionsButton from "./GenerateQuestionsButton";
 import Questions from "./Questions";
 import { generateQuestions } from "@/utils/questions";
 import QuestionsHeader from "./QuestionsHeader";
 import GenerateQuestionsPrompt from "./GenerateQuestionsPrompt";
+import { ModalContext } from "../Modals/ModalContext";
 
 type QuestionSectionType = {
     text: string
@@ -13,6 +14,8 @@ export default function QuestionsSection({ text }: QuestionSectionType) {
     const [numQuestions, setNumQuestions] = useState<number>(5);
     const [questions, setQuestions] = useState<string[]>([]);
     const [answers, setAnswers] = useState<string[]>([]);
+
+    const { setPayModalOpen } = useContext(ModalContext);
 
     useEffect(() => {
         setAnswers(questions?.map(() => ""));
@@ -25,7 +28,7 @@ export default function QuestionsSection({ text }: QuestionSectionType) {
                 !questions.length ? (
                     <GenerateQuestionsPrompt 
                         disabled={text.length === 0}
-                        generateQuestions={generateQuestions(text, setQuestions)}
+                        generateQuestions={() => setPayModalOpen(true)}
                     />
                 ) : (
                     <Questions 
