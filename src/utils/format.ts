@@ -24,3 +24,20 @@ export function copyToClipboard(questions: string[], answers: string[]) {
         }
     }
 };
+
+export function roundToCents(price: number) {
+    return Math.floor(price * 100) / 100;
+}
+
+export function formatPrice(price: number) {
+    const formatted = `$${price}`;
+
+    if (!formatted.includes(".")) {
+        return `${formatted}.00`;
+    } else if (formatted.substring(formatted.indexOf(".")).length < 3) {
+        return `${formatted}0`;
+    } else {
+        console.log(formatted.substring(formatted.indexOf(".")))
+        return formatted;
+    }
+}

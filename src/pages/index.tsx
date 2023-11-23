@@ -24,7 +24,7 @@ export default function App() {
         { 
           payModalOpen && 
           <PayModal 
-            {...{numQuestions, setNumQuestions}} 
+            {...{text, numQuestions, setNumQuestions}} 
           /> 
         }
     </ModalContext.Provider>
