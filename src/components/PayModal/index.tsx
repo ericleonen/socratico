@@ -3,8 +3,8 @@ import ModalBase from "../Modals/ModalBase";
 import { ModalContext } from "../Modals/ModalContext";
 import NumQuestionsField from "./NumQuestionsField";
 import { PriceCalculator } from "./PriceCalculator";
-import { roundInK } from "@/utils/math";
-import { formatPrice, roundToCents } from "@/utils/format";
+import { roundInK } from "../../../utils/math";
+import { formatPrice, roundToCents } from "../../../utils/format";
 
 type PayModalProps = {
     text: string, 

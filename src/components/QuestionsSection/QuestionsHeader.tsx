@@ -1,4 +1,4 @@
-import { copyToClipboard } from "@/utils/format"
+import { copyToClipboard } from "../../../utils/format"
 import CopyQuestionsButton from "./CopyQuestionsButton"
 
 type QuestionsHeaderType = {

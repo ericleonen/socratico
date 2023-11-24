@@ -1,5 +1,5 @@
-import { formatPrice } from "@/utils/format";
-import { useAutoSizeNumberInput, onChangeValue } from "@/utils/input";
+import { formatPrice } from "../../../utils/format";
+import { useAutoSizeNumberInput, onChangeValue } from "../../../utils/input";
 import { useRef } from "react";
 
 type NumQuestionsFieldProps = {

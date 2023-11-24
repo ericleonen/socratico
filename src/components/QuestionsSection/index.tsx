@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import GenerateQuestionsButton from "./GenerateQuestionsButton";
 import Questions from "./Questions";
-import { generateQuestions } from "@/utils/questions";
+import { generateQuestions } from "../../../utils/questions";
 import QuestionsHeader from "./QuestionsHeader";
 import GenerateQuestionsPrompt from "./GenerateQuestionsPrompt";
 import { ModalContext } from "../Modals/ModalContext";

@@ -1,4 +1,4 @@
-import { generateLoadingMessage } from "@/utils/questions";
+import { generateLoadingMessage } from "../../../utils/questions";
 import { ChatBubbleOvalLeftEllipsisIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 

@@ -1,4 +1,4 @@
-import { roundInK } from "@/utils/math"
+import { roundInK } from "../../../utils/math"
 
 type CharacterCountProps = {
     value: number

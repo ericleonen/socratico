@@ -1,4 +1,4 @@
-import { onChangeValue, useAutoSizeTextArea } from "@/utils/input";
+import { onChangeValue, useAutoSizeTextArea } from "../../../utils/input";
 import { useRef } from "react";
 
 type QuestionProps = {

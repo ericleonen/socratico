@@ -1,4 +1,4 @@
-import { setAnswerByIndex } from "@/utils/input"
+import { setAnswerByIndex } from "../../../utils/input"
 import Question from "./Question"
 
 type QuestionsType = {
