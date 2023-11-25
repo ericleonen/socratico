@@ -29,6 +29,7 @@ export default function QuestionsSection({ text }: QuestionSectionType) {
                     <GenerateQuestionsPrompt 
                         disabled={text.length === 0}
                         generateQuestions={() => setPayModalOpen(true)}
+                        // generateQuestions={generateQuestions(text, setQuestions)}
                     />
                 ) : (
                     <Questions 

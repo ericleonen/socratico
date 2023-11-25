@@ -37,7 +37,6 @@ export function formatPrice(price: number) {
     } else if (formatted.substring(formatted.indexOf(".")).length < 3) {
         return `${formatted}0`;
     } else {
-        console.log(formatted.substring(formatted.indexOf(".")))
         return formatted;
     }
 }

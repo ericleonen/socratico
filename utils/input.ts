@@ -14,8 +14,6 @@ export function useAutoSizeNumberInput(numberInputRef: HTMLInputElement | null, 
         if (numberInputRef) {
             numberInputRef.style.width = "0px";
             numberInputRef.style.width = `${numberInputRef.scrollWidth}px`;
-
-            console.log(numberInputRef.style.width);
         }
     }, [numberInputRef, value]);
 }
