@@ -26,7 +26,7 @@ export default function PayModal({ text, numQuestions, setNumQuestions }: PayMod
     const [textPrice, setTextPrice] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
 
-    useUpdatePrices(text, numQuestions, setQuestionsPrice, setTextPrice, setTotalPrice);
+    useUpdatePrices(text, numQuestions, setTextPrice, setQuestionsPrice, setTotalPrice);
 
     return (
         <ModalBase 
