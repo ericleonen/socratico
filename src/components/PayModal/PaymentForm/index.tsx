@@ -52,7 +52,7 @@ export default function PaymentForm({ totalPrice }: PaymentFormProps) {
         const { error } = await stripe.confirmPayment({
             elements,
             confirmParams: {
-                return_url: RETURN_URL
+                return_url: `${window.location.origin}`
             }
         });
 

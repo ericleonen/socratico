@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 import { calculatePrices } from "../../../utils/math";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET!, {
+const stripe = new Stripe(process.env.STRIPE_SECRET_TEST!, {
     typescript: true,
     apiVersion:"2023-10-16"
 });

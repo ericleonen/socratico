@@ -16,7 +16,7 @@ export default function FeeTable({
     numQuestions, setNumQuestions, questionsPrice, characterCount, textPrice, totalPrice 
 }: FeeTableProps) {
     return (
-        <div className="border-2 border-black/10 p-3 rounded-md shadow-lg mt-4 bg-gray-100/30">
+        <div className="border-2 border-black/10 p-3 rounded-md shadow-lg mt-4 bg-gray-100">
             <NumQuestionsField {...{numQuestions, setNumQuestions, questionsPrice}} />
             <div className="text-black/90 font-medium mt-2 flex">
                 <p>Characters: {roundInK(characterCount)}</p>

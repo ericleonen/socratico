@@ -17,7 +17,7 @@ export function formatQuestions(questions: string[], answers: string[]) {
 }
 
 export function formatPrice(price: number) {
-    const formatted = `$${price}`;
+    const formatted = `$${price / 100}`;
 
     if (!formatted.includes(".")) {
         return `${formatted}.00`;

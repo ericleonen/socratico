@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import ModalBase from "../Modals/ModalBase";
 import { ModalContext } from "../Modals/ModalContext";
 import { useUpdatePrices } from "../../../utils/math";
@@ -8,12 +8,15 @@ import FeeTable from "./FeeTable";
 import TotalPriceDisplay from "./TotalPriceDisplay";
 import { getStripe, useUpdateClientSecret } from "../../../utils/stripe";
 import { StripeElementsOptionsClientSecret } from "@stripe/stripe-js/types/stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
 type PayModalProps = {
     text: string, 
     numQuestions: number,
     setNumQuestions: (num: number) => void
 }
+
+const stripePromise = getStripe();
 
 export default function PayModal({ text, numQuestions, setNumQuestions }: PayModalProps) {
     const { setPayModalOpen } = useContext(ModalContext);
@@ -45,8 +48,8 @@ export default function PayModal({ text, numQuestions, setNumQuestions }: PayMod
             </div>
             {
                 clientSecret && 
-                <Elements 
-                    stripe={getStripe()}
+                <Elements
+                    stripe={stripePromise}
                     options={options}
                 >
                     <PaymentForm {...{totalPrice}} />
