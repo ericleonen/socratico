@@ -1,3 +1,4 @@
+import { MAX_QUESTIONS, MIN_QUESTIONS } from "../../../params/questions";
 import { formatPrice } from "../../../utils/format";
 import { useAutoSizeNumberInput, onChangeValue } from "../../../utils/input";
 import { useRef } from "react";
@@ -28,13 +29,13 @@ export default function NumQuestionsField(
                     }
                 }}
                 onBlur={() => {
-                    if (numQuestions > 40) {
-                        setNumQuestions(40);
+                    if (numQuestions > MAX_QUESTIONS) {
+                        setNumQuestions(MAX_QUESTIONS);
                     }
                 }}
                 type="number"
-                min={1}
-                max={40}
+                min={MIN_QUESTIONS}
+                max={MAX_QUESTIONS}
                 step={1}
                 className="text-black/90 min-w-[20px] w-[20px] bg-gray-300/70 rounded-sm ml-1 focus:outline-none text-center px-[5px] focus:bg-gray-300"
             />

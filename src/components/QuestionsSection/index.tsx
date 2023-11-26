@@ -5,13 +5,14 @@ import { generateQuestions } from "../../../utils/questions";
 import QuestionsHeader from "./QuestionsHeader";
 import GenerateQuestionsPrompt from "./GenerateQuestionsPrompt";
 import { ModalContext } from "../Modals/ModalContext";
+import { MIN_QUESTIONS } from "../../../params/questions";
 
 type QuestionSectionType = {
     text: string
 }
 
 export default function QuestionsSection({ text }: QuestionSectionType) {
-    const [numQuestions, setNumQuestions] = useState<number>(5);
+    const [numQuestions, setNumQuestions] = useState<number>(MIN_QUESTIONS);
     const [questions, setQuestions] = useState<string[]>([]);
     const [answers, setAnswers] = useState<string[]>([]);
 

@@ -1,5 +1,6 @@
+import { FIXED_RATE } from "../../../params/pricing";
 import { formatPrice } from "../../../utils/format";
-import { roundInK } from "../../../utils/math";
+import { roundInK } from "../../../utils/format";
 import NumQuestionsField from "./NumQuestionsField";
 
 type FeeTableProps =  {
@@ -23,7 +24,7 @@ export default function FeeTable({
             </div>
             <div className="text-black/90 font-medium mt-2 flex">
                 <p>Fixed rate</p>
-                <p className="ml-auto">$0.40</p>
+                <p className="ml-auto">{formatPrice(FIXED_RATE)}</p>
             </div>
             <div className="text-black/90 font-medium mt-2 pt-2 flex border-t-2 border-black/10">
                 <p>Total due</p>

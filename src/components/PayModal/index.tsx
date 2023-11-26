@@ -40,7 +40,7 @@ export default function PayModal({ text, numQuestions, setNumQuestions }: PayMod
                 options={{
                     currency: "usd",
                     mode: "payment",
-                    amount: totalPrice * 100
+                    amount: totalPrice
                 }}
             >
                 <PaymentForm {...{totalPrice}} />
