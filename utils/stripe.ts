@@ -1,5 +1,5 @@
 import { Stripe as StripeType, loadStripe } from '@stripe/stripe-js';
-import Stripe from 'stripe';
+import axios from 'axios';
 
 let stripePromise: Promise<StripeType | null>;
 export const getStripe = () => {
@@ -9,26 +9,12 @@ export const getStripe = () => {
   return stripePromise;
 };
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET as string, {
-    apiVersion: '2023-10-16',
-    appInfo: {
-      name: 'Socratica',
-      url: 'https://fe1b-50-46-140-208.ngrok-free.app/',
-    },
-  })
+type ClientSecret = { clientSecret: string };
 
-export type StripePaymentStatus = {
-    status: "initial" | "processing" | "error"
-}
-
-export async function createPaymentIntent(
-    data: { amount: number }
-): Promise<{ client_secret: string }> {
-    const paymentIntent: Stripe.PaymentIntent = await stripe.paymentIntents.create({
-        amount: data.amount * 100,
-        automatic_payment_methods: { enabled: true },
-        currency: "usd"
-    });
-
-    return { client_secret: paymentIntent.client_secret as string };
+export async function useUpdateClientSecret(text: string, numQuestions: number, setClientSecret: (clientSecret: string) => void) {
+  const res = await axios.post<ClientSecret>("/api/create-payment-intent", {
+    header: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text, numQuestions })
+  });
+  setClientSecret(res.data.clientSecret);
 }

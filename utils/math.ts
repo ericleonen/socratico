@@ -17,6 +17,14 @@ export function nearestCent(cents: number) {
     return Math.round(cents);
 }
 
+export function calculatePrices(text: string, numQuestions: number) {
+    const textPrice = nearestCent(text.length * CENTS_PER_CHARACTER);
+    const questionsPrice = nearestCent(numQuestions * CENTS_PER_QUESTION);
+    const totalPrice = nearestCent(textPrice + questionsPrice + FIXED_RATE);
+
+    return [textPrice, questionsPrice, totalPrice];
+}
+
 export function useUpdatePrices(
     text: string, numQuestions: number, 
     setTextPrice: (price: number) => void,
@@ -24,17 +32,9 @@ export function useUpdatePrices(
     setTotalPrice: (price: number) => void
 ) {
     useEffect(() => {
-        const newTextPrice = nearestCent(text.length * CENTS_PER_CHARACTER)
-        let newQuestionsPrice = nearestCent(numQuestions * CENTS_PER_QUESTION);
-
-        if (isNaN(newQuestionsPrice)) {
-            newQuestionsPrice = 0;
-        }
-
-        const newTotalPrice = nearestCent(newTextPrice + newQuestionsPrice + FIXED_RATE);
-
-        setTextPrice(newTextPrice);
-        setQuestionsPrice(newQuestionsPrice);
-        setTotalPrice(newTotalPrice);
+        const [textPrice, questionsPrice, totalPrice] = calculatePrices(text, numQuestions);
+        setTextPrice(textPrice);
+        setQuestionsPrice(questionsPrice);
+        setTotalPrice(totalPrice);
     }, [text, numQuestions]);
 }
