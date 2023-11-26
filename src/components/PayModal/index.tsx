@@ -1,9 +1,7 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import ModalBase from "../Modals/ModalBase";
 import { ModalContext } from "../Modals/ModalContext";
-import NumQuestionsField from "./NumQuestionsField";
-import { roundInK, useUpdatePrices } from "../../../utils/math";
-import { formatPrice, roundToCents } from "../../../utils/format";
+import { useUpdatePrices } from "../../../utils/math";
 import PaymentForm from "./PaymentForm";
 import { Elements } from "@stripe/react-stripe-js";
 import FeeTable from "./FeeTable";
@@ -18,9 +16,9 @@ type PayModalProps = {
 
 export default function PayModal({ text, numQuestions, setNumQuestions }: PayModalProps) {
     const { setPayModalOpen } = useContext(ModalContext);
-    const [questionsPrice, setQuestionsPrice] = useState(0.25);
-    const [textPrice, setTextPrice] = useState(0.25);
-    const [totalPrice, setTotalPrice] = useState(0.5);
+    const [questionsPrice, setQuestionsPrice] = useState(0);
+    const [textPrice, setTextPrice] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(40);
 
     useUpdatePrices(text, numQuestions, setTextPrice, setQuestionsPrice, setTotalPrice);
 

@@ -1,5 +1,7 @@
 import { ChangeEvent, useEffect } from "react";
 
+// useful functions for handling input
+
 export function useAutoSizeTextArea(textAreaRef: HTMLTextAreaElement | null, value: string) {
     useEffect(() => {
         if (textAreaRef) {

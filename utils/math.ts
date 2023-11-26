@@ -1,13 +1,7 @@
-import { useEffect } from "react";
-import { roundToCents } from "./format";
+// useful functions for handling math operations
 
-export function roundInK(n: number) {
-    if (n < 1000) {
-        return n + "";
-    } else {
-        return Math.round(n / 1000) + "K";
-    }
-}
+import { useEffect } from "react";
+import { CENTS_PER_QUESTION, CENTS_PER_CHARACTER, FIXED_RATE } from "../params/pricing";
 
 export function parseIntMin(str: string, min: number) {
     const num = parseInt(str);
@@ -19,6 +13,10 @@ export function parseIntMin(str: string, min: number) {
     }
 }
 
+export function nearestCent(cents: number) {
+    return Math.round(cents);
+}
+
 export function useUpdatePrices(
     text: string, numQuestions: number, 
     setTextPrice: (price: number) => void,
@@ -26,14 +24,14 @@ export function useUpdatePrices(
     setTotalPrice: (price: number) => void
 ) {
     useEffect(() => {
-        const newTextPrice = roundToCents(text.length * 4e-5)
-        let newQuestionsPrice = roundToCents(numQuestions * 2e-2);
+        const newTextPrice = nearestCent(text.length * CENTS_PER_CHARACTER)
+        let newQuestionsPrice = nearestCent(numQuestions * CENTS_PER_QUESTION);
 
         if (isNaN(newQuestionsPrice)) {
             newQuestionsPrice = 0;
         }
 
-        const newTotalPrice = roundToCents(newTextPrice + newQuestionsPrice + 0.40);
+        const newTotalPrice = nearestCent(newTextPrice + newQuestionsPrice + FIXED_RATE);
 
         setTextPrice(newTextPrice);
         setQuestionsPrice(newQuestionsPrice);

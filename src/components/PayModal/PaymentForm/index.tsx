@@ -36,14 +36,14 @@ export default function PaymentForm({ totalPrice }: PaymentFormProps) {
             }
 
             const { client_secret: clientSecret } = await createPaymentIntent({ 
-                amount: totalPrice 
+                amount: totalPrice,
             });
 
             const { error: confirmError } = await stripe!.confirmPayment({
                 elements,
                 clientSecret,
                 confirmParams: {
-                    return_url: "https://000b-50-46-140-208.ngrok-free.app/",
+                    return_url: "https://1a31-50-46-140-208.ngrok-free.app/",
                     payment_method_data: {
                         billing_details: {
                             name: cardholderName
@@ -65,7 +65,10 @@ export default function PaymentForm({ totalPrice }: PaymentFormProps) {
     }
 
     return (
-        <form className="flex flex-grow flex-col px-12 w-[30rem]">
+        <form
+            onSubmit={handleSubmit} 
+            className="flex flex-grow flex-col px-12 w-[30rem]"
+        >
             <fieldset>
                 {
                     paymentType === "card" &&
@@ -89,13 +92,13 @@ export default function PaymentForm({ totalPrice }: PaymentFormProps) {
                 <PaymentElement 
                     onChange={(e) => setPaymentType(e.value.type)}
                 />
-                <button 
-                    type="submit"
-                    className="w-full mt-6 bg-black/90 shadow-sm rounded-md text-gray-200/90 font-medium py-2 hover:bg-black/80"
-                >
-                    Pay {formatPrice(totalPrice)}
-                </button>
             </fieldset>
+            <button 
+                type="submit"
+                className="w-full mt-6 bg-black/90 shadow-sm rounded-md text-gray-200/90 font-medium py-2 hover:bg-black/80"
+            >
+                Pay {formatPrice(totalPrice)}
+            </button>
         </form>
     );
 }

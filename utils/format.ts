@@ -1,4 +1,6 @@
-function formatQuestions(questions: string[], answers: string[]) {
+// useful formatters
+
+export function formatQuestions(questions: string[], answers: string[]) {
     let formatted = "";
 
     questions.forEach((question: string, index: number) => {
@@ -14,21 +16,6 @@ function formatQuestions(questions: string[], answers: string[]) {
     return formatted;
 }
 
-export function copyToClipboard(questions: string[], answers: string[]) {
-    return async () => {
-        try {
-            await navigator.clipboard.writeText(formatQuestions(questions, answers));
-            // copied!
-        } catch (err) {
-            console.log(`Failed to copy: ${err}`);
-        }
-    }
-};
-
-export function roundToCents(price: number) {
-    return Math.floor(price * 100) / 100;
-}
-
 export function formatPrice(price: number) {
     const formatted = `$${price}`;
 
@@ -38,5 +25,13 @@ export function formatPrice(price: number) {
         return `${formatted}0`;
     } else {
         return formatted;
+    }
+}
+
+export function roundInK(n: number) {
+    if (n < 1000) {
+        return n + "";
+    } else {
+        return Math.round(n / 1000) + "K";
     }
 }

@@ -10,11 +10,10 @@ export const getStripe = () => {
 };
 
 export const stripe = new Stripe(process.env.STRIPE_SECRET as string, {
-    // https://github.com/stripe/stripe-node#configuration
     apiVersion: '2023-10-16',
     appInfo: {
       name: 'Socratica',
-      url: 'https://000b-50-46-140-208.ngrok-free.app/',
+      url: 'https://fe1b-50-46-140-208.ngrok-free.app/',
     },
   })
 

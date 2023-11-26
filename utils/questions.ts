@@ -1,3 +1,8 @@
+// useful functions for actions in the Questions Section
+
+import { questionLoadingMessages } from "../params/loading";
+import { formatQuestions } from "./format";
+
 export function generateQuestions (
     text: string, 
     setQuestions: (questions: string[]) => void
@@ -23,15 +28,18 @@ export function generateQuestions (
     }
 }
 
-const loadingMessages = [
-    "Thinking deep thoughts",
-    "Contemplating concepts",
-    "Querying inquiries",
-    "Pondering possibilities",
-    "Debating doubts"
-]
+export function copyToClipboard(questions: string[], answers: string[]) {
+    return async () => {
+        try {
+            await navigator.clipboard.writeText(formatQuestions(questions, answers));
+            // copied!
+        } catch (err) {
+            console.log(`Failed to copy: ${err}`);
+        }
+    }
+};
 
 export function generateLoadingMessage() {
-    const r = Math.floor(Math.random() * loadingMessages.length);
-    return loadingMessages[r];
+    const r = Math.floor(Math.random() * questionLoadingMessages.length);
+    return questionLoadingMessages[r];
 }
